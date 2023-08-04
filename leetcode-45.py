@@ -45,3 +45,14 @@ class Solution:
             if diff <= min_diff:
                 min_i, min_diff = i, diff
         return 1 + self.jump(nums[:min_i+1])
+
+    def jump_optimised(self, nums: List[int]) -> int:
+        res = 0
+        l = r = 0
+        while r < len(nums) - 1:
+            f = 0
+            for i in range(l, r + 1):
+                f = max(f, i + nums[i])
+            l, r = r + 1, f
+            res += 1
+        return res
