@@ -34,35 +34,39 @@
 
 import random
 from typing import List
-from collections import HashSet
 
 
 class RandomizedSet:
 
     def __init__(self):
-        self.__values = set()
-
-    def __random_value(self) -> int:
-        return random.randrange(len(self.__values))
+        self.__values = {}
+        self.__data = []
 
     def __len__(self) -> int:
-        return len(self.__values)
+        return len(self.__data)
 
     def insert(self, val: int) -> bool:
         if val not in self.__values:
-            self.__values.add(val)
+            self.__values[val] = len(self)
+            self.__data.append(val)
             return True
         return False
 
     def remove(self, val: int) -> bool:
         if val in self.__values:
-            self.__values.remove(val)
+            val_pos = self.__values[val]
+            last_val = self.__data[-1]
+
+            self.__values[last_val] = val_pos
+            self.__data[val_pos], self.__data[-1] = self.__data[-1], self.__data[val_pos]
+
+            self.__data.pop()
+            self.__values.pop(val)
             return True
         return False
 
     def getRandom(self) -> int:
-        rand_i = self.__random_value()
-        return list(self.__values)[rand_i]
+        return random.choice(self.__data)
 
 
 # Your RandomizedSet object will be instantiated and called as such:
