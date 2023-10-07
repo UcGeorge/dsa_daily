@@ -16,8 +16,6 @@ public class Solution {
                 int power = (int) Math.pow(10, leth-1);
                 int current = i/power;
                 chars.add(current);
-                chars.
-                leth--;
             }
         }
         System.out.println(chars);
