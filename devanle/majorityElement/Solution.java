@@ -1,5 +1,8 @@
 package devanle.majorityElement;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Solution {
     //first solution, very slow
     public int majorityElement(int[] nums) {
