@@ -3,7 +3,6 @@ package devanle;
 public class main {
     // main class. doing nothing actually.
     public static void main(String[] args) {
-        Map
     }
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int hold = 0;
