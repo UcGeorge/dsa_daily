@@ -1,7 +1,7 @@
-package devanle.canJump;
+package devanle.jumpGame;
 
 class Solution {
-    public boolean canJump(int[] nums) {
+    public boolean jumpGame(int[] nums) {
         int highestReach = 0;
         for(int i = 0; i<nums.length-1; i++){
             highestReach = Math.max(highestReach, i+nums[i]);
